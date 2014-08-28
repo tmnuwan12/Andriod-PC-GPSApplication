@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AppXGPSModule</string>
+    <string name="action_settings">Settings</string>
+    <string name="publish_gps_data">Publish GPS Data</string>
+    <string name="title_activity_server_socket_">ServerSocket_</string>
+    <string name="server_started">Server started, waiting for connections</string>
+
+</resources>

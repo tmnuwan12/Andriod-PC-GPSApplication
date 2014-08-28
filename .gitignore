@@ -1,0 +1,21 @@
+
+classes
+target
+bin
+gen
+.settings
+.metadata
+
+# Logs #
+######################
+*.log
+*.classpath
+*.project
+*.xccheckout
+*.xcuserstate
+*.xcbkptlist
+
+
+
+[https]
+proxy = https://intranet.tradecard.net
