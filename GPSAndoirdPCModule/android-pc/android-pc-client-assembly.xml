@@ -1,0 +1,40 @@
+<assembly>
+	<formats>
+		<format>zip</format>
+	</formats>
+
+	<fileSets>
+		<fileSet>
+			<directory>${project.build.directory}</directory>
+			<outputDirectory />
+			<includes>
+				<include>**/*.jar</include>
+				<include>**/*.bat</include>
+				<include>**/*.exe</include>
+
+			</includes>
+		</fileSet>
+
+
+	</fileSets>
+	<files>
+
+		<file>
+			<source>${basedir}/src/main/resources/log/log.config</source>
+		</file>
+		<file>
+			<source>${basedir}/src/main/resources/run.bat</source>
+		</file>
+	</files>
+
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>/lib</outputDirectory>
+			<includes>
+				<include>org.apache.commons:commons-math3</include>
+				<include>net.sf.opencsv:opencsv</include>
+				<include>junit:junit</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+</assembly>

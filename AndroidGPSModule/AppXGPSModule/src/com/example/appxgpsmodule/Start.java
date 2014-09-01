@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 import com.example.appxgpsmodule.storage.ExternalStorageReader;
@@ -25,9 +28,13 @@ public class Start extends Activity {
 	
 	private final static String EOD_FLAG = "END" + "\n";
 	
-	private final String FILE_LOCATION = "/sdcard/GPSLogger/20140827.txt";
+//	private final String FILE_LOCATION = "/sdcard/GPSLogger/20140827.txt";
+	
+	private final static String FILE_LOCATION = "/sdcard/GPSLogger/";
+	private final static String FILE_EXTENSION = ".txt";
 
-
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -88,7 +95,7 @@ public class Start extends Activity {
 					*/
 					
 					
-					ExternalStorageReader.readExStorage(new File(FILE_LOCATION), Start.this);
+					ExternalStorageReader.readExStorage(new File(getFileName()), Start.this);
 					
 					//TODO: Read GPS data from the sd card and push it over usb cable.
 					
@@ -113,6 +120,19 @@ public class Start extends Activity {
 		}
 
 	};
+	
+	
+	
+	/**
+	 * @return - Current date.
+	 */
+	private static String getFileName(){
+		Calendar today = Calendar.getInstance();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		return FILE_LOCATION.intern() + dateFormat.format(today.getTime()) + FILE_EXTENSION.intern();
+	}
+	
+	
 
 	private Runnable showToast = new Thread() {
 
